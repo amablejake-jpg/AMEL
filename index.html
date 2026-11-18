@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDONTKNOW</title>
+    <style>
+        :root {
+            --pink: #ff8fb8;
+            --pink-deep: #e0558b;
+            --blush: #ffe3ee;
+            --plum: #1c1226;
+            --ink: #3a1030;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 1rem 3rem;
+            font-family: var(--font);
+            color: #fff;
+            background:
+                radial-gradient(circle at 15% 10%, #ffc2d9 0, transparent 45%),
+                radial-gradient(circle at 85% 90%, #d9b8ff 0, transparent 45%),
+                #ffb3cf;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* floating decorations */
+        .float {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: bob 4s ease-in-out infinite;
+        }
+        .f1 { top: 8%;  left: 7%;  }
+        .f2 { top: 18%; right: 9%; animation-delay: -1s; }
+        .f3 { bottom: 14%; left: 10%; animation-delay: -2s; }
+        .f4 { bottom: 9%; right: 8%; animation-delay: -3s; }
+        .f5 { top: 52%; left: 3%; animation-delay: -1.5s; }
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(-6deg); }
+            50%      { transform: translateY(-14px) rotate(6deg); }
+        }
+
+        /* card with cat ears */
+        .card-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .ear {
+            position: absolute;
+            top: -46px;
+            width: 84px;
+            height: 84px;
+            background: var(--pink);
+            clip-path: polygon(50% 0, 0 100%, 100% 100%);
+            z-index: 0;
+        }
+        .ear::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--pink-deep);
+            clip-path: polygon(50% 20%, 26% 62%, 74% 62%);
+        }
+        .ear.left  { left: 34px;  transform: rotate(-12deg); transform-origin: bottom center; }
+        .ear.right { right: 34px; transform: rotate(12deg);  transform-origin: bottom center; }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            padding: 2rem 1.5rem 2.25rem;
+            text-align: center;
+            background: var(--plum);
+            border: 4px solid var(--pink);
+            border-radius: 28px;
+            box-shadow: 0 0 0 6px rgba(255, 143, 184, 0.25), 0 20px 40px rgba(60, 10, 50, 0.35);
+        }
+
+        h1 {
+            margin: 0 0 1.25rem;
+            font-size: clamp(1.4rem, 5vw, 2rem);
+            line-height: 1.25;
+            font-weight: 800;
+            color: var(--pink);
+        }
+
+        /* speech bubble */
+        .bubble {
+            position: relative;
+            margin: 0 0 2rem;
+            padding: 1rem 1.25rem;
+            background: var(--blush);
+            color: var(--ink);
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 18px;
+        }
+        .bubble::after {
+            content: "";
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            margin-left: -14px;
+            border: 14px solid transparent;
+            border-bottom: 0;
+            border-top-color: var(--blush);
+        }
+
+        /* photo sticker */
+        .photo {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 2rem;
+            border: 5px solid var(--pink);
+            border-radius: 20px;
+            background: var(--blush);
+            transform: rotate(-2deg);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75em 1.6em;
+            background: var(--pink);
+            color: var(--plum);
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 999px;
+            box-shadow: 0 5px 0 var(--pink-deep);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 var(--pink-deep);
+        }
+        .btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 var(--pink-deep);
+        }
+        .btn:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .float { animation: none; }
+            .btn { transition: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <span class="float f1" aria-hidden="true">🐾</span>
+    <span class="float f2" aria-hidden="true">💗</span>
+    <span class="float f3" aria-hidden="true">🐾</span>
+    <span class="float f4" aria-hidden="true">✨</span>
+    <span class="float f5" aria-hidden="true">💗</span>
+
+    <div class="card-wrap">
+        <span class="ear left" aria-hidden="true"></span>
+        <span class="ear right" aria-hidden="true"></span>
+
+        <main class="card">
+            <h1>Amel told me to put any catboy pic of me in here lmao</h1>
+
+            <p class="bubble">
+                yall im just bored and i want to have a peace la peace bro i swear PLEASE GIVE ME ANY SUGGESTION WHAT TO DO NEXT HAHA
+                <br>let me know
+            </p>
+
+            <img class="photo" src="images/Screenshot 2026-08-20 152518.png" alt="HAHAHAHAHAAH I DONT KNOW">
+
+            <a href="album.html" class="btn">🐾 View the album</a>
+        </main>
+    </div>
+
+</body>
+</html>
